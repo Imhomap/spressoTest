@@ -1,7 +1,7 @@
 package sharaev.slava.ra.espresso
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -31,10 +31,10 @@ class EspressoTest {
                     )
                 )
             )
-    }
+            .perform(
+                click()
 
-    @Test
-    fun checkPassFieldDisplayed() {
+            )
         onView(withId(R.id.password_input))
             .check(
                 ViewAssertions.matches(
@@ -46,10 +46,6 @@ class EspressoTest {
                     )
                 )
             )
-    }
-
-    @Test
-    fun checkLoginBtnDisplayed() {
         onView(withId(R.id.login_button))
             .check(
                 ViewAssertions.matches(
@@ -61,15 +57,15 @@ class EspressoTest {
                     )
                 )
             )
-    }
 
-    @Test
-    fun clickLoginBtn() {
+
         onView(withId(R.id.login_button))
             .perform(
                 click()
             )
-        onView(withId(R.id.login_input))
+
+        Thread.sleep(90000)
+
     }
 
  }
