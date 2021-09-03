@@ -9,7 +9,7 @@ import sharaev.slava.ra.espresso.screens.LoginScreen
 import sharaev.slava.ra.ui.LoginActivity
 
 @RunWith(AndroidJUnit4::class)
-class HomeworkSOTest {
+class EspressoTest1 {
 
     @get:Rule
     val activityRule = ActivityScenarioRule(LoginActivity::class.java)
@@ -18,6 +18,28 @@ class HomeworkSOTest {
     fun checkLoginFieldDisplayed() {
         LoginScreen {
             checkLoginHint("login")
+        }
+    }
+
+    @Test
+    fun checkPassFieldDisplayed() {
+        LoginScreen {
+            checkPassHint("password")
+        }
+    }
+
+    @Test
+    fun checkLoginBtnDisplayed() {
+        LoginScreen {
+            checkLoginBtn("LOGIN")
+        }
+    }
+
+    @Test
+    fun enterringTextLoginDisplayed() {
+        LoginScreen {
+            typeTextLogin("User_1")
+            typePass("passWoRd")
         }
     }
 
