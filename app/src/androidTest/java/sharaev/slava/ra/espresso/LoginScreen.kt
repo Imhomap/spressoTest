@@ -3,6 +3,7 @@ package sharaev.slava.ra.espresso.screens
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import org.hamcrest.Matchers
@@ -51,9 +52,11 @@ object LoginScreen {
                         ViewMatchers.isClickable(),
                         ViewMatchers.withText(loginBtnLable)
 
+
                     )
             )
         )
+
     }
 
     fun typeTextLogin(loginText: String) {
@@ -67,9 +70,19 @@ object LoginScreen {
     fun typePass(passText: String) {
         Espresso.onView(ViewMatchers.withId(R.id.password_input))
             .perform(
-                ViewActions.click(), ViewActions.typeText(passText), ViewActions.closeSoftKeyboard()
+                ViewActions.click(),
+                ViewActions.typeText(passText),
+                ViewActions.closeSoftKeyboard()
             )
+
 
     }
 
+    fun loginBtnClick() {
+        Espresso.onView(ViewMatchers.withId(R.id.login_button))
+            .perform(
+                ViewActions.click()
+            )
+
+    }
 }

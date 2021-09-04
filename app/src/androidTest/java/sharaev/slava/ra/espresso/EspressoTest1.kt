@@ -39,8 +39,16 @@ class EspressoTest1 {
     fun enterringTextLoginDisplayed() {
         LoginScreen {
             typeTextLogin("User_1")
-            typePass("passWoRd")
+            typeTextLogin("8888")
+            checkLoginBtn("Login")
+            loginBtnClick()
+            Thread.sleep(5000)
+
+
         }
-    }
+
+
+        }
+
 
  }
